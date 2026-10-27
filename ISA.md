@@ -87,7 +87,7 @@ J-type: [ opcode(6) | address(26)                                ]
 | mthi     | 010001  | -     | HI = rs                          |
 | mtlo     | 010011  | -     | LO = rs                          |
 
-Note: funct codes above are assigned by us for this project (kept close to real
+Note: funct codes above are assigned by me for this project (kept close to real
 MIPS where possible, but d-variants for shifts/shift-var are reassigned to
 avoid collision, since real MIPS64 uses a second 6-bit space we're not
 implementing). This table is the single source of truth — the assembler and
@@ -122,9 +122,4 @@ codes exist here.
 - $ra = $31 (link register, used by jal/jalr).
 - HI/LO: 64-bit each, hold mult/div results.
 
-## Open items to decide before assembler/control unit lock-in
-- Overflow trap handling (add/sub/daddi etc.) — flag-only vs actual trap/exception unit.
-- Delay slot: THIS DESIGN HAS NO BRANCH DELAY SLOT (branches resolved in ID
-  with 1-cycle flush instead). Real MIPS has a delay slot; we're deviating
-  intentionally for the hazard-handling design goal. Documented here so the
-  assembler does NOT need to account for delay-slot instruction reordering.
+
